@@ -137,10 +137,12 @@
     .hero-right {
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
+      justify-content: center;
+      align-items: center;
       padding: 4rem;
       position: relative;
       overflow: hidden;
+      gap: 2.5rem;
     }
     .hero-bg-shape {
       position: absolute;
@@ -152,20 +154,53 @@
       background: radial-gradient(circle at 40% 40%, rgba(0,120,212,0.12), transparent 70%);
       pointer-events: none;
     }
+    .hero-photo-wrap {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      flex-shrink: 0;
+    }
+    .hero-photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 50%;
+      background: conic-gradient(var(--azure) 0deg 90deg, var(--line) 90deg 360deg);
+      z-index: 0;
+    }
+    .hero-photo-wrap::after {
+      content: '';
+      position: absolute;
+      inset: -2px;
+      border-radius: 50%;
+      background: var(--bg);
+      z-index: 1;
+    }
+    .hero-photo {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
     .hero-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1px;
       background: var(--line);
       border: 1px solid var(--line);
+      width: 100%;
     }
     .stat {
       background: var(--bg);
-      padding: 2rem;
+      padding: 2.5rem 2rem;
     }
     .stat-num {
       font-family: var(--serif);
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--azure);
       line-height: 1;
       margin-bottom: 0.4rem;
@@ -456,7 +491,7 @@
       .nav-links { display: none; }
       #hero { grid-template-columns: 1fr; min-height: auto; }
       .hero-left { padding: 6rem 2rem 3rem; border-right: none; border-bottom: 1px solid var(--line); }
-      .hero-right { padding: 3rem 2rem; }
+      .hero-right { padding: 3rem 2rem; gap: 2rem; }
       section { padding: 5rem 2rem; }
       .about-grid, .contact-grid, .cv-grid { grid-template-columns: 1fr; gap: 3rem; }
       .project-item { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -484,7 +519,7 @@
 <section id="hero">
   <div class="hero-left">
     <div class="hero-tag">Cloud Architect · Azure Specialist</div>
-    <h1 class="hero-name">Max<br><em>Mustermann</em></h1>
+    <h1 class="hero-name">Eugen<br><em>Wagner</em></h1>
     <p class="hero-title">Senior Cloud Architect</p>
     <p class="hero-desc">
       Ich entwerfe und implementiere skalierbare, sichere Cloud-Architekturen auf Microsoft Azure – von der Strategie bis zur Produktion.
@@ -496,22 +531,17 @@
   </div>
   <div class="hero-right">
     <div class="hero-bg-shape"></div>
+    <div class="hero-photo-wrap">
+      <img src="Eugen.Wagner_NEU3.jpg" alt="Eugen Wagner – Cloud Architect" class="hero-photo">
+    </div>
     <div class="hero-stats">
       <div class="stat">
-        <div class="stat-num">8+</div>
-        <div class="stat-label">Jahre Erfahrung</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">40+</div>
+        <div class="stat-num">20+</div>
         <div class="stat-label">Azure-Projekte</div>
       </div>
       <div class="stat">
-        <div class="stat-num">6</div>
+        <div class="stat-num">4</div>
         <div class="stat-label">Microsoft-Zertifizierungen</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">12</div>
-        <div class="stat-label">Enterprise-Kunden</div>
       </div>
     </div>
   </div>
@@ -579,28 +609,23 @@
   <div class="certs-grid">
     <div class="cert-card reveal">
       <div class="cert-badge">Microsoft</div>
-      <div class="cert-name">Azure Solutions Architect Expert</div>
-      <div class="cert-meta">AZ-305 · Gültig bis 2027</div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-badge">Microsoft</div>
-      <div class="cert-name">Azure DevOps Engineer Expert</div>
-      <div class="cert-meta">AZ-400 · Gültig bis 2027</div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-badge">Microsoft</div>
-      <div class="cert-name">Azure Administrator Associate</div>
-      <div class="cert-meta">AZ-104 · Gültig bis 2027</div>
-    </div>
-    <div class="cert-card reveal">
-      <div class="cert-badge">Microsoft</div>
       <div class="cert-name">Azure Fundamentals</div>
       <div class="cert-meta">AZ-900</div>
     </div>
     <div class="cert-card reveal">
-      <div class="cert-badge">Hashicorp</div>
-      <div class="cert-name">Terraform Associate</div>
-      <div class="cert-meta">003 · Gültig bis 2025</div>
+      <div class="cert-badge">Microsoft</div>
+      <div class="cert-name">Azure Administrator Associate</div>
+      <div class="cert-meta">AZ-104</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-badge">Microsoft</div>
+      <div class="cert-name">Azure Solutions Architect Expert</div>
+      <div class="cert-meta">AZ-305</div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-badge">Microsoft</div>
+      <div class="cert-name">Azure DevOps Engineer Expert</div>
+      <div class="cert-meta">AZ-400</div>
     </div>
   </div>
 </section>
@@ -759,9 +784,9 @@
       <h3>Lass uns zusammenarbeiten.</h3>
       <p>Du planst ein Azure-Projekt, brauchst Architekturberatung oder suchst einen erfahrenen Cloud Architect? Ich freue mich über deine Nachricht.</p>
       <div class="contact-links">
-        <a href="mailto:max@mustermann.de" class="contact-link">
+        <a href="/cdn-cgi/l/email-protection#acc1cdd4ecc1d9dfd8c9dec1cdc2c282c8c9" class="contact-link">
           <div class="contact-link-icon">✉</div>
-          max@mustermann.de
+          <span class="__cf_email__" data-cfemail="e18c8099a18c94929584938c808f8fcf8584">[email&#160;protected]</span>
         </a>
         <a href="https://linkedin.com/in/maxmustermann" class="contact-link" target="_blank">
           <div class="contact-link-icon">in</div>
@@ -797,21 +822,10 @@
   <span>Cloud Architect · Microsoft Azure</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  document.querySelectorAll('.reveal').forEach((el, i) => {
-    el.style.transitionDelay = `${(i % 4) * 0.08}s`;
-    observer.observe(el);
-  });
-</script>
-</body>
-</html>
+        observ
