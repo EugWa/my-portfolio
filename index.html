@@ -828,4 +828,9 @@
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        observ
+        observer.unobserve(e.target);
+      }
+    });
+  });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
