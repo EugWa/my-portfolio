@@ -476,6 +476,58 @@
       font-size: 0.75rem;
       color: var(--muted);
     }
+    footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--azure); }
+
+    /* ── COOKIE BANNER ── */
+    #cookie-banner {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg);
+      border-top: 1px solid var(--line);
+      padding: 1.5rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      z-index: 99;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    #cookie-banner.show { transform: translateY(0); }
+    .cookie-content { flex: 1; }
+    .cookie-title { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .cookie-text { font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+    .cookie-text a { color: var(--azure); text-decoration: none; }
+    .cookie-buttons { display: flex; gap: 1rem; flex-shrink: 0; flex-wrap: wrap; }
+    .cookie-btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: 2px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .cookie-btn-accept {
+      background: var(--azure);
+      color: #fff;
+    }
+    .cookie-btn-accept:hover { background: #005fa3; }
+    .cookie-btn-decline {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .cookie-btn-decline:hover { border-color: var(--azure); color: var(--azure); }
+
+    @media (max-width: 900px) {
+      #cookie-banner { flex-direction: column; align-items: flex-start; padding: 1.5rem 2rem; }
+      .cookie-buttons { width: 100%; }
+    }
 
     /* ── ANIMATIONS ── */
     .reveal {
@@ -805,8 +857,24 @@
 <!-- FOOTER -->
 <footer>
   <span>© 2025 Eugen Wagner</span>
-  <span>Cloud Architect · Microsoft Azure</span>
+  <div style="display: flex; gap: 2rem;">
+    <a href="privacy.html">Datenschutz</a>
+    <a href="privacy.html#impressum">Impressum</a>
+    <span>Cloud Architect · Microsoft Azure</span>
+  </div>
 </footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner">
+  <div class="cookie-content">
+    <div class="cookie-title">Cookies & Datenschutz</div>
+    <p class="cookie-text">Diese Website verwendet notwendige Cookies für Funktionalität und Analytics. Durch die Nutzung stimmst du unserer <a href="privacy.html">Datenschutzerklärung</a> zu.</p>
+  </div>
+  <div class="cookie-buttons">
+    <button class="cookie-btn cookie-btn-decline" onclick="window.cookies.decline()">Ablehnen</button>
+    <button class="cookie-btn cookie-btn-accept" onclick="window.cookies.accept()">Akzeptieren</button>
+  </div>
+</div>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Scroll reveal
@@ -819,4 +887,27 @@
     });
   });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Cookie Management
+  window.cookies = {
+    init() {
+      const consent = localStorage.getItem('cookie-consent');
+      if (!consent) {
+        document.getElementById('cookie-banner').classList.add('show');
+      }
+    },
+    accept() {
+      localStorage.setItem('cookie-consent', 'accepted');
+      localStorage.setItem('cookie-consent-date', new Date().toISOString());
+      document.getElementById('cookie-banner').classList.remove('show');
+      // Analytics tracking can be enabled here
+    },
+    decline() {
+      localStorage.setItem('cookie-consent', 'declined');
+      localStorage.setItem('cookie-consent-date', new Date().toISOString());
+      document.getElementById('cookie-banner').classList.remove('show');
+    }
+  };
+  
+  window.cookies.init();
 </script>

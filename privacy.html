@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Datenschutz · Eugen Wagner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f2;
+      --ink: #0f0f0f;
+      --muted: #6b6b6b;
+      --azure: #0078d4;
+      --line: #e0ddd8;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(247,245,242,0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-logo a {
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-logo a:hover { color: var(--azure); }
+
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--azure); }
+
+    .privacy-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 150px 4rem 5rem;
+    }
+
+    .privacy-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .privacy-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .privacy-section h2 {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--ink);
+    }
+
+    .privacy-section p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .privacy-section ul {
+      color: var(--muted);
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+
+    .privacy-section li {
+      margin-bottom: 0.5rem;
+    }
+
+    .privacy-update {
+      padding: 1.5rem;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      padding: 2rem 4rem;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    footer a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    footer a:hover { color: var(--azure); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1.25rem 2rem; }
+      .nav-links { display: none; }
+      .privacy-container { padding: 120px 2rem 3rem; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><a href="index.html">Eugen Wagner</a></div>
+  <ul class="nav-links">
+    <li><a href="index.html#about">Über mich</a></li>
+    <li><a href="index.html#projects">Projekte</a></li>
+    <li><a href="index.html#contact">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="privacy-container">
+  <h1 class="privacy-title">Datenschutzerklärung</h1>
+
+  <div class="privacy-update">
+    <strong>Zuletzt aktualisiert:</strong> 23. März 2026
+  </div>
+
+  <div class="privacy-section">
+    <h2>1. Verantwortlicher</h2>
+    <p>
+      Eugen Wagner<br>
+      [Deine Adresse]<br>
+      [Deine Stadt, PLZ]<br>
+      [Dein Land]
+    </p>
+    <p>
+      <strong>E-Mail:</strong> <a href="mailto:contact@example.com">contact@example.com</a><br>
+      <strong>Website:</strong> www.eugenwagner.de
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>2. Datenschutz auf einen Blick</h2>
+    <p>
+      Diese Website wird betrieben, ohne dass personenbezogene Daten erfasst werden. Wir erklärt uns hiermit zum verantwortlichen Unternehmen für die Verarbeitung personenbezogener Daten gemäß Artikel 4 der Datenschutz-Grundverordnung (DSGVO).
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>3. Erfassung von Daten</h2>
+    <p>
+      <strong>Verarbeitung beim Besuch der Website:</strong>
+      Beim Zugriff auf diese Website werden automatisch Informationen erfasst, jedoch <strong>ohne Speicherung personenbezogener Daten</strong>:
+    </p>
+    <ul>
+      <li>IP-Adresse (nicht gespeichert)</li>
+      <li>Browser- und Betriebssystemdaten</li>
+      <li>Referrer-Informationen</li>
+      <li>Uhrzeit des Zugriffs</li>
+    </ul>
+    <p>
+      Diese Daten werden ausschließlich für technische Zwecke verarbeitet und nicht mit anderen Datenquellen zusammengefasst.
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>4. Kontaktformular</h2>
+    <p>
+      Falls du über das Kontaktformular mit uns in Kontakt trittst, werden die eingegebenen Daten (Name, E-Mail, Nachricht) erfasst und direkt an den Seiteninhaber weitergeleitet. Diese Daten werden <strong>ausschließlich für die Beantwortung deiner Anfrage</strong> verwendet und nicht an Dritte weitergegeben.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Artikel 6 Abs. 1 lit. a DSGVO (Einwilligung)
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>5. Cookies</h2>
+    <p>
+      Diese Website verwendet nur <strong>notwendige Cookies</strong> für die Funktionalität und dein Einverständnis mit der Datenschutzerklärung. Diese Cookies enthalten:
+    </p>
+    <ul>
+      <li><strong>cookie-consent:</strong> Speichert deine Cookie-Einwilligung (akzeptiert/abgelehnt)</li>
+      <li><strong>cookie-consent-date:</strong> Timestamp der Zustimmung</li>
+    </ul>
+    <p>
+      Du kannst Cookies in deinem Browser jederzeit deaktivieren. Beachte, dass dies die Funktionalität dieser Website beeinträchtigen kann.
+    </p>
+    <p>
+      <strong>Rechtsgrundlage:</strong> Artikel 6 Abs. 1 lit. b DSGVO (Erfüllung eines Vertrags)
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>6. Analytics</h2>
+    <p>
+      Diese Website nutzt <strong>aktuell kein Analytics-Tool</strong> und erfasst keine Nutzungsdaten für statistische Auswertungen. Falls zukünftig ein Analytics-Tool implementiert wird, wird eine entsprechende Datenschutzerklärung hinzugefügt.
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>7. Externe Ressourcen</h2>
+    <p>
+      Diese Website bindet folgende externe Ressourcen ein:
+    </p>
+    <ul>
+      <li><strong>Google Fonts:</strong> Zur Darstellung von Schriftarten. Google verarbeitet ggfs. die IP-Adresse (siehe <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutz</a>)</li>
+    </ul>
+  </div>
+
+  <div class="privacy-section">
+    <h2>8. Deine Rechte</h2>
+    <p>
+      Nach der DSGVO hast du folgende Rechte:
+    </p>
+    <ul>
+      <li><strong>Auskunftsrecht:</strong> Du kannst jederzeit erfragen, welche personenbezogenen Daten über dich verarbeitet werden</li>
+      <li><strong>Widerspruchsrecht:</strong> Du kannst der Verarbeitung deiner Daten widersprechen</li>
+      <li><strong>Recht auf Berichtigung:</strong> Du kannst fehlerhafte Daten korrigieren lassen</li>
+      <li><strong>Recht auf Löschung:</strong> Du kannst die Löschung deiner Daten verlangen</li>
+      <li><strong>Recht auf Datenportabilität:</strong> Du kannst deine Daten in strukturierter Form erhalten</li>
+    </ul>
+    <p>
+      Um deine Rechte geltend zu machen, kontaktiere uns unter der oben angegebenen E-Mail-Adresse.
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>9. Sicherheit</h2>
+    <p>
+      Deine Daten sind durch technische und organisatorische Maßnahmen geschützt. Wir verwenden SSL-Verschlüsselung für die sichere Übertragung von Daten über das Internet.
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>10. Datenspeicherung</h2>
+    <p>
+      Personenbezogene Daten werden nur so lange gespeichert, wie es für den Zweck der Verarbeitung erforderlich ist:
+    </p>
+    <ul>
+      <li><strong>Kontaktformular:</strong> Daten werden nach Beantwortung gelöscht oder maximal 30 Tage gespeichert</li>
+      <li><strong>Cookie-Einwilligung:</strong> Wird für 12 Monate gespeichert und kann jederzeit gelöscht werden</li>
+    </ul>
+  </div>
+
+  <div class="privacy-section">
+    <h2>11. Beschwerderecht</h2>
+    <p>
+      Solltest du der Auffassung sein, dass die Verarbeitung deiner Daten gegen die DSGVO verstößt, hast du das Recht, dich bei einer Datenschutzbehörde zu beschweren. Die zuständige Behörde findest du unter:
+    </p>
+    <p>
+      <a href="https://www.bfdi.bund.de/" target="_blank">Bundesbeauftragte für Datenschutz und Informationsfreiheit (BfDI)</a>
+    </p>
+  </div>
+
+  <div class="privacy-section">
+    <h2>12. Änderungen dieser Datenschutzerklärung</h2>
+    <p>
+      Wir behalten uns vor, diese Datenschutzerklärung jederzeit zu ändern. Bei wesentlichen Änderungen werden wir dich informieren.
+    </p>
+  </div>
+
+  <div class="privacy-section" id="impressum">
+    <h2>Impressum</h2>
+    <p>
+      <strong>Angaben gemäß § 5 TMG und § 7 Abs. 1 ECG:</strong>
+    </p>
+    <p>
+      Eugen Wagner<br>
+      [Deine Adresse]<br>
+      [Deine Stadt, PLZ]<br>
+      [Dein Land]
+    </p>
+    <p>
+      <strong>Kontakt:</strong><br>
+      E-Mail: <a href="mailto:contact@example.com">contact@example.com</a><br>
+      Telefon: [Deine Telefonnummer, optional]
+    </p>
+    <p>
+      <strong>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:</strong><br>
+      Eugen Wagner
+    </p>
+    <p>
+      <strong>Haftungsausschluss:</strong><br>
+      Trotz Sorgfalt bei der Erstellung und Aktualisierung dieser Website übernehmen wir keine Haftung für die Vollständigkeit, Richtigkeit und Aktualität der Inhalte. Alle Inhalte dienen nur zu Informationszwecken.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <span>© 2025 Eugen Wagner</span>
+  <div style="display: flex; gap: 2rem;">
+    <a href="privacy.html">Datenschutz</a>
+    <a href="privacy.html#impressum">Impressum</a>
+    <span>Cloud Architect · Microsoft Azure</span>
+  </div>
+</footer>
+
+</body>
+</html>
