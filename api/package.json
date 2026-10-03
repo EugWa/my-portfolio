@@ -1,0 +1,9 @@
+{
+  "name": "wedding-rsvp-api",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Azure Static Web App API for RSVP storage.",
+  "dependencies": {
+    "@azure/data-tables": "^13.3.0"
+  }
+}

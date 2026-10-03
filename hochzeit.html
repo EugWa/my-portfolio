@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hochzeit von Jessy & Eugen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg-ivory: #f5f1ea;
+        --bg-warm: #efe6da;
+        --panel: rgba(26, 23, 20, 0.44);
+        --panel-strong: rgba(20, 18, 17, 0.7);
+        --card: rgba(255, 255, 255, 0.12);
+        --card-solid: rgba(255, 255, 255, 0.72);
+        --line: rgba(255, 255, 255, 0.18);
+        --text: #f8f3ee;
+        --text-dark: #201c1a;
+        --muted: rgba(255, 255, 255, 0.72);
+        --muted-dark: #574d48;
+        --accent: #d8b67d;
+        --accent-soft: #e5d4ae;
+        --sage: #8a9c8c;
+        --rose: #b17c6b;
+        --success: #8aa68e;
+        --danger: #d17468;
+        --shadow: 0 24px 70px rgba(0, 0, 0, 0.22);
+      }
+
+      * { box-sizing: border-box; }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Inter", sans-serif;
+        background: var(--bg-ivory);
+        color: var(--text);
+        position: relative;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background:
+          linear-gradient(135deg, rgba(18, 16, 15, 0.62), rgba(40, 31, 28, 0.42)),
+          url("IMG-20240921-WA0020.jpg") center/cover no-repeat;
+        filter: saturate(0.72) brightness(0.9) contrast(1.08);
+        transform: scale(1.04);
+        z-index: -2;
+      }
+
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(9, 8, 8, 0.18);
+        z-index: -1;
+      }
+
+      a { color: inherit; }
+
+      .page-shell {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 36px 20px 72px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 18px 24px;
+        margin-bottom: 28px;
+        border: 1px solid var(--line);
+        background: rgba(14, 14, 14, 0.18);
+        backdrop-filter: blur(8px);
+        border-radius: 999px;
+        box-shadow: var(--shadow);
+      }
+
+      .brand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(1.8rem, 2vw, 2.4rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 600;
+      }
+
+      .brand small {
+        font-size: 0.58em;
+        letter-spacing: 0.24em;
+        opacity: 0.72;
+        margin-left: 10px;
+      }
+
+      .topbar-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 42px;
+        padding: 0 18px;
+        font-size: 0.72rem;
+        text-decoration: none;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        border: 1px solid rgba(255,255,255,0.22);
+        border-radius: 999px;
+        color: var(--text);
+        background: rgba(255,255,255,0.04);
+        transition: border-color 0.2s ease, background 0.2s ease;
+      }
+
+      .topbar-link:hover {
+        border-color: rgba(255,255,255,0.5);
+        background: rgba(255,255,255,0.08);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 28px;
+        align-items: stretch;
+      }
+
+      .hero-copy,
+      .panel,
+      .info-box,
+      .success-box {
+        border-radius: 28px;
+        border: 1px solid var(--line);
+        background: rgba(14, 14, 14, 0.16);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: clamp(2rem, 5vw, 4rem);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent-soft);
+        margin-bottom: 1.2rem;
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 54px;
+        height: 1px;
+        background: rgba(255,255,255,0.7);
+      }
+
+      h1 {
+        margin: 0;
+        font-family: "Cormorant Garamond", serif;
+        font-weight: 600;
+        font-size: clamp(3.6rem, 6vw, 6.2rem);
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+      }
+
+      h1 span {
+        display: block;
+        color: var(--accent-soft);
+      }
+
+      .hero-copy p {
+        font-size: 1.05rem;
+        line-height: 1.8;
+        max-width: 48ch;
+        color: var(--muted);
+        margin: 1.5rem 0 0;
+      }
+
+      .hero-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 14px;
+        margin-top: 2rem;
+      }
+
+      .meta-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 0.72rem 1rem;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(255,255,255,0.04);
+        font-size: 0.75rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text);
+      }
+
+      .panel {
+        padding: clamp(1.4rem, 4vw, 2.1rem);
+      }
+
+      .countdown {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-soft);
+        margin-bottom: 1rem;
+      }
+
+      .date-block {
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.3rem, 4vw, 3.5rem);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+      }
+
+      .venue {
+        font-size: 0.95rem;
+        color: var(--muted);
+        margin-bottom: 1.3rem;
+      }
+
+      .mini-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin-top: 1.2rem;
+      }
+
+      .info-box {
+        padding: 1rem 1rem 1.1rem;
+        background: rgba(255,255,255,0.04);
+      }
+
+      .info-box strong {
+        display: block;
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-soft);
+        margin-bottom: 0.45rem;
+      }
+
+      .info-box span {
+        display: block;
+        font-size: 1rem;
+        color: var(--text);
+      }
+
+      .main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.05fr;
+        gap: 28px;
+        margin-top: 28px;
+      }
+
+      .sub-panel {
+        border-radius: 28px;
+        border: 1px solid rgba(255,255,255,0.18);
+        background: rgba(15, 15, 14, 0.16);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+        padding: clamp(1.4rem, 4vw, 2.2rem);
+      }
+
+      .section-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent-soft);
+        margin-bottom: 1rem;
+      }
+
+      .story {
+        font-size: 1.02rem;
+        line-height: 1.9;
+        color: var(--muted);
+      }
+
+      .story p { margin: 0 0 1rem; }
+
+      .story p:last-child { margin-bottom: 0; }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      label {
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-soft);
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        border: 1px solid rgba(255,255,255,0.18);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.08);
+        color: var(--text);
+        padding: 0.9rem 1rem;
+        font: inherit;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: rgba(255,255,255,0.42);
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: rgba(216, 182, 125, 0.8);
+        box-shadow: 0 0 0 3px rgba(216, 182, 125, 0.16);
+        background: rgba(255,255,255,0.1);
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+      }
+
+      .field-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .button-row {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 0.5rem;
+      }
+
+      .primary-button,
+      .secondary-button {
+        padding: 0.95rem 1.4rem;
+        border-radius: 999px;
+        border: 1px solid transparent;
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .primary-button {
+        background: linear-gradient(135deg, var(--accent), #c3a368);
+        color: #1c1b1a;
+        box-shadow: 0 8px 22px rgba(197, 163, 104, 0.35);
+      }
+
+      .secondary-button {
+        background: rgba(255,255,255,0.05);
+        border-color: rgba(255,255,255,0.18);
+        color: var(--text);
+      }
+
+      .primary-button:hover,
+      .secondary-button:hover {
+        transform: translateY(-1px);
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      .status {
+        min-height: 24px;
+        font-size: 0.82rem;
+        line-height: 1.6;
+      }
+
+      .status.error {
+        color: #ffd2c9;
+      }
+
+      .status.success {
+        color: #d1f0d9;
+      }
+
+      .password-shell {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: rgba(8, 7, 7, 0.52);
+        backdrop-filter: blur(8px);
+        z-index: 10;
+        padding: 20px;
+      }
+
+      .password-card {
+        width: min(100%, 430px);
+        padding: clamp(1.5rem, 4vw, 2.5rem);
+        border-radius: 26px;
+        border: 1px solid rgba(255,255,255,0.16);
+        background: rgba(17, 16, 15, 0.62);
+        box-shadow: var(--shadow);
+      }
+
+      .password-card h2 {
+        margin: 0 0 0.75rem;
+        font-family: "Cormorant Garamond", serif;
+        font-size: clamp(2.4rem, 5vw, 3.2rem);
+        font-weight: 600;
+        line-height: 1;
+      }
+
+      .password-card p {
+        margin: 0 0 1.25rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .password-card .field {
+        margin-bottom: 1rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero,
+        .main-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .topbar {
+          border-radius: 24px;
+          padding: 16px 18px;
+        }
+
+        .brand {
+          font-size: 1.5rem;
+          letter-spacing: 0.06em;
+        }
+
+        .brand small {
+          display: none;
+        }
+
+        .field-row,
+        .mini-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="password-shell" id="passwordShell">
+      <div class="password-card">
+        <h2>Hochzeit von Jessica & Eugen</h2>
+        <p>Bitte gib das Passwort ein, damit du deine Anmeldung für die Hochzeit einsehen und senden kannst.</p>
+
+        <form id="passwordForm">
+          <div class="field">
+            <label for="passwordInput">Passwort</label>
+            <input id="passwordInput" name="password" type="password" placeholder="Passwort eingeben" autocomplete="current-password" required />
+          </div>
+          <div class="button-row">
+            <button class="primary-button" type="submit">Freischalten</button>
+          </div>
+          <div id="passwordStatus" class="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </div>
+
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">Jessica <small>&amp;</small> Eugen</div>
+        <a href="index.html" class="topbar-link">Zurück zur Website</a>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">Save the date</div>
+          <h1>Hochzeit von <span>Jessica &amp; Eugen</span></h1>
+          <p>
+            Wir feiern am 15. Mai 2027 mit euch diesen besonderen Tag in wunderschöner Atmosphäre. Eure Anwesenheit bedeutet uns sehr viel, und wir freuen uns auf eure Antwort.
+          </p>
+          <div class="hero-meta">
+            <div class="meta-pill">15.05.2027</div>
+            <div class="meta-pill">15:00 Uhr</div>
+            <div class="meta-pill">Schloss Filseck, 73066 Uhingen</div>
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="countdown">Hochzeit</div>
+          <div class="date-block">15.05.2027</div>
+          <div class="venue">15:00 Uhr · Schloss Filseck · 73066 Uhingen</div>
+
+          <div class="mini-grid">
+            <div class="info-box">
+              <strong>Start</strong>
+              <span>15:00 Uhr</span>
+            </div>
+            <div class="info-box">
+              <strong>Ort</strong>
+              <span>Schloss Filseck</span>
+            </div>
+            <div class="info-box">
+              <strong>Unterkunft</strong>
+              <span>elaya Hotel, Göppingen</span>
+            </div>
+            <div class="info-box">
+              <strong>Kontakt</strong>
+              <span>jessica-eugen@email.de</span>
+            </div>
+            <div class="info-box">
+              <strong>RSVP</strong>
+              <span>Bis 15.09.2026</span>
+            </div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="main-grid">
+        <div class="sub-panel story">
+          <div class="section-label">Unsere Geschichte</div>
+          <p>
+            Gemeinsam haben wir viele schöne Momente erlebt und uns immer auf den nächsten großen Schritt gemeinsam gefreut. Nun möchten wir mit euch an unserem Hochzeitstag feiern und die Freude mit euch teilen.
+          </p>
+          <p>
+            An diesem Tag wollen wir mit unseren liebsten Menschen zusammen sein und euch herzlich willkommen heißen. Bitte meldet euch über dieses Formular an – wir freuen uns auf eure Antwort und auf einen unvergesslichen Tag mit euch.
+          </p>
+        </div>
+
+        <div class="sub-panel">
+          <div class="section-label">Anmeldung</div>
+          <form id="rsvpForm" class="hidden">
+            <div class="field">
+              <label for="guestName">Name</label>
+              <input id="guestName" name="name" type="text" placeholder="Vor- und Nachname" required />
+            </div>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="guestCount">Anzahl Gäste</label>
+                <input id="guestCount" name="guestCount" type="number" min="1" max="8" value="1" required />
+              </div>
+
+              <div class="field">
+                <label for="attendance">Antwort</label>
+                <select id="attendance" name="attendance" required>
+                  <option value="">Bitte wählen</option>
+                  <option value="ja">Ich komme</option>
+                  <option value="nein">Ich kann leider nicht</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="message">Nachricht</label>
+              <textarea id="message" name="message" placeholder="Optional: Wünsche, Anmerkungen oder Allergien"></textarea>
+            </div>
+
+            <div class="button-row">
+              <button class="primary-button" type="submit">Antwort senden</button>
+            </div>
+            <div id="rsvpStatus" class="status" aria-live="polite"></div>
+          </form>
+
+          <div id="successBox" class="success-box hidden">
+            <div class="section-label">Bestätigung</div>
+            <p class="story" id="successMessage"></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const passwordShell = document.getElementById('passwordShell');
+      const passwordForm = document.getElementById('passwordForm');
+      const rsvpForm = document.getElementById('rsvpForm');
+      const passwordStatus = document.getElementById('passwordStatus');
+      const rsvpStatus = document.getElementById('rsvpStatus');
+      const successBox = document.getElementById('successBox');
+      const successMessage = document.getElementById('successMessage');
+
+      async function postJson(payload) {
+        const response = await fetch('/api/rsvp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await response.json().catch(() => ({}));
+
+        if (!response.ok) {
+          throw new Error(data.error || 'Etwas ist schiefgelaufen.');
+        }
+
+        return data;
+      }
+
+      passwordForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const password = document.getElementById('passwordInput').value.trim();
+        passwordStatus.className = 'status';
+
+        try {
+          const result = await postJson({ action: 'check-password', password });
+
+          if (!result.ok) {
+            passwordStatus.classList.add('error');
+            passwordStatus.textContent = 'Das Passwort ist leider falsch.';
+            return;
+          }
+
+          passwordShell.classList.add('hidden');
+          rsvpForm.classList.remove('hidden');
+        } catch (error) {
+          passwordStatus.classList.add('error');
+          passwordStatus.textContent = error.message;
+        }
+      });
+
+      rsvpForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        rsvpStatus.className = 'status';
+
+        const formData = new FormData(rsvpForm);
+        const payload = {
+          action: 'submit-rsvp',
+          name: String(formData.get('name') || '').trim(),
+          guestCount: Number(formData.get('guestCount') || 0),
+          attendance: String(formData.get('attendance') || '').trim(),
+          message: String(formData.get('message') || '').trim()
+        };
+
+        if (!payload.name || !payload.guestCount || !payload.attendance) {
+          rsvpStatus.classList.add('error');
+          rsvpStatus.textContent = 'Bitte fülle alle Pflichtfelder aus.';
+          return;
+        }
+
+        try {
+          const result = await postJson(payload);
+          rsvpForm.classList.add('hidden');
+          successBox.classList.remove('hidden');
+          successMessage.textContent = result.message || `${payload.name}, vielen Dank für deine Antwort!`;
+        } catch (error) {
+          rsvpStatus.classList.add('error');
+          rsvpStatus.textContent = error.message;
+        }
+      });
+    </script>
+  </body>
+</html>
