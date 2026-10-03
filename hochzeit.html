@@ -603,8 +603,10 @@
       const successBox = document.getElementById('successBox');
       const successMessage = document.getElementById('successMessage');
 
+      const API_URL = window.RSVP_API_URL || 'fn-wagnerapp-fybpcddtaqfbcnaw.westeurope-01.azurewebsites.net/api/rsvp';
+
       async function postJson(payload) {
-        const response = await fetch('/api/rsvp', {
+        const response = await fetch(API_URL, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload)
