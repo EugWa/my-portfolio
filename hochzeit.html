@@ -49,9 +49,9 @@
         position: fixed;
         inset: 0;
         background:
-          linear-gradient(135deg, rgba(18, 16, 15, 0.32), rgba(40, 31, 28, 0.16)),
+          linear-gradient(135deg, rgba(18, 16, 15, 0.62), rgba(40, 31, 28, 0.42)),
           url("IMG-20240921-WA0020.jpg") center/cover no-repeat;
-        filter: saturate(0.82) brightness(1) contrast(1.08);
+        filter: saturate(0.72) brightness(0.9) contrast(1.08);
         transform: scale(1.04);
         z-index: -2;
       }
@@ -60,8 +60,12 @@
         content: "";
         position: fixed;
         inset: 0;
-        background: rgba(9, 8, 8, 0.08);
+        background: rgba(9, 8, 8, 0.18);
         z-index: -1;
+      }
+
+      .background-only-scroll-space {
+        height: 100vh;
       }
 
       a { color: inherit; }
@@ -597,6 +601,7 @@
         </div>
       </section>
     </div>
+    <div class="background-only-scroll-space" aria-hidden="true"></div>
 
     <script>
       const passwordShell = document.getElementById('passwordShell');
