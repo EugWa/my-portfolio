@@ -285,6 +285,22 @@
         padding: clamp(1.4rem, 4vw, 2.2rem);
       }
 
+      .playlist-panel {
+        margin-top: 28px;
+      }
+
+      .playlist-panel p {
+        color: var(--muted);
+        line-height: 1.8;
+        margin: 0 0 1.25rem;
+      }
+
+      .playlist-link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+      }
+
       .section-label {
         font-size: 0.72rem;
         letter-spacing: 0.18em;
@@ -603,6 +619,13 @@
             <p class="story" id="successMessage"></p>
           </div>
         </div>
+      </section>
+
+      <section class="sub-panel playlist-panel" aria-labelledby="playlistTitle">
+        <div class="section-label">Musikwünsche</div>
+        <h2 id="playlistTitle" style="margin: 0 0 0.75rem; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600;">Unsere Hochzeits-Playlist</h2>
+        <p>Habt ihr einen Song, der auf unserer Hochzeit nicht fehlen darf? Fügt eure Musikwünsche direkt zu unserer gemeinsamen Spotify-Playlist hinzu.</p>
+        <a class="primary-button playlist-link" href="https://open.spotify.com/playlist/2B3TRL6shbMAuQ6L5xAZWC?si=4vTNUshdTxW3KvPH_RdMow&amp;utm_source=whatsapp&amp;pt=2e8224f60f7383eea90a0357ea69a249&amp;pi=LneY_L4MQl-cX" target="_blank" rel="noopener noreferrer">Playlist auf Spotify öffnen</a>
       </section>
     </div>
     <div class="background-only-scroll-space" aria-hidden="true"></div>
